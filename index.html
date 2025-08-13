@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <header class="form-header">
+                <h1>Student Registration Form</h1>
+                <p class="form-subtitle">Please complete all required fields to register</p>
+            </header>
+
+            <form id="registrationForm" class="registration-form" novalidate>
+                <!-- Personal Information Section -->
+                <div class="form-section">
+                    <h2 class="section-title">Personal Information</h2>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName" class="form-label">First Name *</label>
+                            <input 
+                                type="text" 
+                                id="firstName" 
+                                name="firstName" 
+                                class="form-control" 
+                                required 
+                                minlength="2" 
+                                maxlength="50" 
+                                pattern="[A-Za-z\s]+"
+                                placeholder="Enter your first name"
+                                aria-describedby="firstName-error"
+                            >
+                            <div class="error-message" id="firstName-error"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="lastName" class="form-label">Last Name *</label>
+                            <input 
+                                type="text" 
+                                id="lastName" 
+                                name="lastName" 
+                                class="form-control" 
+                                required 
+                                minlength="2" 
+                                maxlength="50" 
+                                pattern="[A-Za-z\s]+"
+                                placeholder="Enter your last name"
+                                aria-describedby="lastName-error"
+                            >
+                            <div class="error-message" id="lastName-error"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email Address *</label>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                name="email" 
+                                class="form-control" 
+                                required
+                                placeholder="Enter your email address"
+                                aria-describedby="email-error"
+                            >
+                            <div class="error-message" id="email-error"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone" class="form-label">Phone Number *</label>
+                            <input 
+                                type="tel" 
+                                id="phone" 
+                                name="phone" 
+                                class="form-control" 
+                                required 
+                                pattern="\d{3}-\d{3}-\d{4}"
+                                placeholder="123-456-7890"
+                                aria-describedby="phone-error"
+                            >
+                            <div class="error-message" id="phone-error"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="dateOfBirth" class="form-label">Date of Birth *</label>
+                            <input 
+                                type="date" 
+                                id="dateOfBirth" 
+                                name="dateOfBirth" 
+                                class="form-control" 
+                                required
+                                aria-describedby="dateOfBirth-error"
+                            >
+                            <div class="error-message" id="dateOfBirth-error"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="studentId" class="form-label">Student ID</label>
+                            <input 
+                                type="text" 
+                                id="studentId" 
+                                name="studentId" 
+                                class="form-control" 
+                                pattern="[A-Za-z]{2}\d{6}"
+                                placeholder="AB123456"
+                                aria-describedby="studentId-error"
+                            >
+                            <div class="error-message" id="studentId-error"></div>
+                            <small class="form-hint">Format: 2 letters + 6 numbers (optional)</small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gender Selection Section -->
+                <div class="form-section">
+                    <h2 class="section-title">Gender</h2>
+                    <div class="radio-group" role="radiogroup" aria-labelledby="gender-legend" aria-required="true">
+                        <legend id="gender-legend" class="sr-only">Gender Selection</legend>
+                        <label class="radio-label">
+                            <input type="radio" name="gender" value="male" required>
+                            <span class="radio-custom"></span>
+                            Male
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="gender" value="female" required>
+                            <span class="radio-custom"></span>
+                            Female
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="gender" value="other" required>
+                            <span class="radio-custom"></span>
+                            Other
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="gender" value="prefer-not-to-say" required>
+                            <span class="radio-custom"></span>
+                            Prefer not to say
+                        </label>
+                    </div>
+                    <div class="error-message" id="gender-error"></div>
+                </div>
+
+                <!-- Academic Information Section -->
+                <div class="form-section">
+                    <h2 class="section-title">Academic Information</h2>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="program" class="form-label">Program of Study *</label>
+                            <select id="program" name="program" class="form-control" required aria-describedby="program-error">
+                                <option value="">Select your program</option>
+                                <option value="computer-science">Computer Science</option>
+                                <option value="business-administration">Business Administration</option>
+                                <option value="engineering">Engineering</option>
+                                <option value="medicine">Medicine</option>
+                                <option value="law">Law</option>
+                                <option value="liberal-arts">Liberal Arts</option>
+                                <option value="education">Education</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <div class="error-message" id="program-error"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="academicYear" class="form-label">Academic Year *</label>
+                            <select id="academicYear" name="academicYear" class="form-control" required aria-describedby="academicYear-error">
+                                <option value="">Select your year</option>
+                                <option value="freshman">Freshman</option>
+                                <option value="sophomore">Sophomore</option>
+                                <option value="junior">Junior</option>
+                                <option value="senior">Senior</option>
+                                <option value="graduate">Graduate</option>
+                            </select>
+                            <div class="error-message" id="academicYear-error"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="gpa" class="form-label">Current GPA</label>
+                            <input 
+                                type="number" 
+                                id="gpa" 
+                                name="gpa" 
+                                class="form-control" 
+                                min="0.0" 
+                                max="4.0" 
+                                step="0.01"
+                                placeholder="0.0 - 4.0"
+                                aria-describedby="gpa-error"
+                            >
+                            <div class="error-message" id="gpa-error"></div>
+                            <small class="form-hint">Optional: Scale 0.0 - 4.0</small>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="graduation" class="form-label">Expected Graduation</label>
+                            <input 
+                                type="month" 
+                                id="graduation" 
+                                name="graduation" 
+                                class="form-control"
+                                aria-describedby="graduation-error"
+                            >
+                            <div class="error-message" id="graduation-error"></div>
+                            <small class="form-hint">Optional: Expected graduation month/year</small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Address Information Section -->
+                <div class="form-section">
+                    <h2 class="section-title">Address Information</h2>
+                    <div class="form-group">
+                        <label for="address" class="form-label">Street Address *</label>
+                        <textarea 
+                            id="address" 
+                            name="address" 
+                            class="form-control" 
+                            required 
+                            minlength="10" 
+                            maxlength="200" 
+                            rows="3"
+                            placeholder="Enter your complete street address"
+                            aria-describedby="address-error"
+                        ></textarea>
+                        <div class="error-message" id="address-error"></div>
+                    </div>
+                </div>
+
+                <!-- Interests Section -->
+                <div class="form-section">
+                    <h2 class="section-title">Interests</h2>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="interests" value="sports">
+                            <span class="checkbox-custom"></span>
+                            Sports
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="interests" value="music">
+                            <span class="checkbox-custom"></span>
+                            Music
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="interests" value="technology">
+                            <span class="checkbox-custom"></span>
+                            Technology
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="interests" value="arts">
+                            <span class="checkbox-custom"></span>
+                            Arts
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="interests" value="volunteer-work">
+                            <span class="checkbox-custom"></span>
+                            Volunteer Work
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Emergency Contact Section -->
+                <div class="form-section">
+                    <h2 class="section-title">Emergency Contact</h2>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="emergencyName" class="form-label">Emergency Contact Name *</label>
+                            <input 
+                                type="text" 
+                                id="emergencyName" 
+                                name="emergencyName" 
+                                class="form-control" 
+                                required 
+                                pattern="[A-Za-z\s]+"
+                                placeholder="Enter emergency contact name"
+                                aria-describedby="emergencyName-error"
+                            >
+                            <div class="error-message" id="emergencyName-error"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="emergencyPhone" class="form-label">Emergency Contact Phone *</label>
+                            <input 
+                                type="tel" 
+                                id="emergencyPhone" 
+                                name="emergencyPhone" 
+                                class="form-control" 
+                                required 
+                                pattern="\d{3}-\d{3}-\d{4}"
+                                placeholder="123-456-7890"
+                                aria-describedby="emergencyPhone-error"
+                            >
+                            <div class="error-message" id="emergencyPhone-error"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Agreement Section -->
+                <div class="form-section">
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="terms" name="terms" required>
+                            <span class="checkbox-custom"></span>
+                            I agree to the <a href="#" target="_blank" rel="noopener noreferrer">Terms and Conditions</a> *
+                        </label>
+                    </div>
+                    <div class="error-message" id="terms-error"></div>
+                </div>
+
+                <!-- Form Actions -->
+                <div class="form-actions">
+                    <button type="reset" class="btn btn--secondary" id="resetBtn">Reset Form</button>
+                    <button type="submit" class="btn btn--primary" id="submitBtn">Submit Registration</button>
+                </div>
+            </form>
+
+            <!-- Success Message -->
+            <div class="success-message hidden" id="successMessage">
+                <div class="success-content">
+                    <h2>Registration Successful!</h2>
+                    <p>Thank you for registering. Your information has been submitted successfully.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
